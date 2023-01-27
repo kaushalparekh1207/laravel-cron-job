@@ -9,6 +9,7 @@ class Kernel extends ConsoleKernel
 {
     protected $commands = [
         \App\Console\Commands\CronJob::class,
+        \App\Console\Commands\SendMail::class,
     ];
 
     /**
@@ -20,6 +21,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('add:user')->everyMinute();
+        $schedule->command('send:mail')->everyMinute();
     }
 
     /**
